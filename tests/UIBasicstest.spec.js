@@ -10,7 +10,7 @@ test("Browser Context Playwright test", async ({ browser }) => {
   console.log(await page.title());
 });
 
-test("Page Playwright test", async ({ page }) => {
+test.only("Page Playwright test", async ({ page }) => {
   //This version does the same as the one above, but without opening a cookie free browser
   await page.goto("https://google.com");
   //Get title - asertion
