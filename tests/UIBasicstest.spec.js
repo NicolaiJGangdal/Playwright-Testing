@@ -16,4 +16,5 @@ test.only("Page Playwright test", async ({ page }) => {
   //Get title - asertion
   console.log(await page.title());
   await expect(page).toHaveTitle("Google");
+  console.log("Branch Test");
 });
