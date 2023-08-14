@@ -36,3 +36,26 @@ test("Page Playwright test", async ({ page }) => {
   await expect(page).toHaveTitle("Google");
   console.log("Branch Test");
 });
+
+test.only("UI Controls", async ({ page }) => {
+  await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+
+  const userName = page.locator("#username");
+  const signIn = page.locator("#signInBtn");
+  const dropdown = page.locator("select.form-control "); // Create a variabel containing the html for the dropdown menu
+  await dropdown.selectOption("consult"); // waiting for page to load, then choosing the option with the value "consult" inside the dropdown menu
+
+  //Selecting the User Radiobox and checking with assertion if the correct value is selected
+  await page.locator(".radiotextsty").last().click();
+  await page.locator("#okayBtn").click();
+  console.log(await page.locator(".radiotextsty").last().isChecked());
+  await expect(page.locator(".radiotextsty").last()).toBeChecked();
+
+  //Checking a checkbox - then unchecking it - then testing if the box is unchecked with an assertion
+  await page.locator("#terms").click();
+  await expect(page.locator("#terms")).toBeChecked();
+  await page.locator("#terms").uncheck();
+  expect(await page.locator("#terms").isChecked()).toBeFalsy();
+
+  //    await page.pause(); //Freezes the screen and waits for you to click -next step - handy when a test goes to fast
+});
