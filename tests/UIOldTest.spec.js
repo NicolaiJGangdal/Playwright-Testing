@@ -42,6 +42,7 @@ test.only("UI Controls", async ({ page }) => {
 
   const userName = page.locator("#username");
   const signIn = page.locator("#signInBtn");
+  const documentLink = page.locator("[href*='documents-request']");
   const dropdown = page.locator("select.form-control "); // Create a variabel containing the html for the dropdown menu
   await dropdown.selectOption("consult"); // waiting for page to load, then choosing the option with the value "consult" inside the dropdown menu
 
@@ -56,6 +57,11 @@ test.only("UI Controls", async ({ page }) => {
   await expect(page.locator("#terms")).toBeChecked();
   await page.locator("#terms").uncheck();
   expect(await page.locator("#terms").isChecked()).toBeFalsy();
+
+  //Checking if there is a blinking text at the top of the website
+  await expect(documentLink).toHaveAttribute("class", "blinkingText");
+
+  //Create a new page and checking if the link on our first page contains certain information
 
   //    await page.pause(); //Freezes the screen and waits for you to click -next step - handy when a test goes to fast
 });
