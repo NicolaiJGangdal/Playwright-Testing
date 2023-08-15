@@ -60,8 +60,11 @@ test.only("UI Controls", async ({ page }) => {
 
   //Checking if there is a blinking text at the top of the website
   await expect(documentLink).toHaveAttribute("class", "blinkingText");
-
   //Create a new page and checking if the link on our first page contains certain information
-
-  //    await page.pause(); //Freezes the screen and waits for you to click -next step - handy when a test goes to fast
+  //await page.pause(); //Freezes the screen and waits for you to click -next step - handy when a test goes to fast
 });
+
+
+
+
+
