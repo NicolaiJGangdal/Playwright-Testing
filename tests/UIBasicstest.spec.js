@@ -1,7 +1,5 @@
 const { test, expect } = require("@playwright/test");
 
-
-
 // Create new test to access this site "https://rahulshettyacademy.com/client/"
 // Log In - Access First Item On Page
 // Username: nfotball_96@hotmail.com PW: Playwright123
@@ -21,7 +19,7 @@ test("Solo Browser Context Test", async ({ browser }) => {
   //  await expect(page.locator("[style*='block']")).toContainText("Incorrect");
 
   //  console.log(await cardTitles.first().textContent());
-  
+
   //  await page.waitForLoadState('networkidle');
 
   await cardTitles.first().waitFor();

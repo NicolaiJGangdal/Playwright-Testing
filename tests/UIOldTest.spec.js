@@ -37,7 +37,7 @@ test("Page Playwright test", async ({ page }) => {
   console.log("Branch Test");
 });
 
-test.only("UI Controls", async ({ page }) => {
+test("UI Controls", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
 
   const userName = page.locator("#username");
@@ -64,7 +64,18 @@ test.only("UI Controls", async ({ page }) => {
   //await page.pause(); //Freezes the screen and waits for you to click -next step - handy when a test goes to fast
 });
 
+test.only("Child windows handler", async ({ browser }) => {
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+  const documentLink = page.locator("[href*='documents-request']");
 
+  const newPage = await Promise.all([
+    context.waitForEvent("page"),
+    documentLink.click(),
+  ]);
+  text = await newPage.locator(".red").textContent();
+  console.log(text);
 
-
-
+  await page.pause();
+});
