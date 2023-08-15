@@ -79,8 +79,10 @@ test.only("Child windows handler", async ({ browser }) => {
   ]);
   //Fetching the email address on the new open tab
   const text = await newPage.locator(".red").textContent();
-  const arrayText = text.split("@");
+  const arrayText = text.split("@");  //  Splitting up the above string into what comes before and after the "@"
+  const domain = arrayText[1].split(" ")[0];  //  Here we have extracted what comes after the "@"
   console.log(text);
   console.log(arrayText);
+  console.log(domain);
   //  await page.pause();
 });
