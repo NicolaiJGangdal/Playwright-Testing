@@ -87,6 +87,7 @@ test.only("Child windows handler", async ({ browser }) => {
   console.log(domain);
 
   //  Trying to type in the domain from the parent page - this did not work go back and watch guide
+  //  difference in code is the const declaration in line 82 where text is defined
   await page.locator("#username").type(domain);
   console.log(await page.locator("#username").textContent());
   // await page.pause();
