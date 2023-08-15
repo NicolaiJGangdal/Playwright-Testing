@@ -65,17 +65,22 @@ test("UI Controls", async ({ page }) => {
 });
 
 test.only("Child windows handler", async ({ browser }) => {
+  //Opening browser with correct URL
   const context = await browser.newContext();
   const page = await context.newPage();
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
   const documentLink = page.locator("[href*='documents-request']");
 
+  //Createing method to click the blinking link on the webpage
+  //Opening the link in a different tab
   const [newPage] = await Promise.all([
     context.waitForEvent("page"),
     documentLink.click(),
   ]);
+  //Fetching the email address on the new open tab
   const text = await newPage.locator(".red").textContent();
+  const arrayText = text.split("@");
   console.log(text);
-
-  await page.pause();
+  console.log(arrayText);
+  //  await page.pause();
 });
