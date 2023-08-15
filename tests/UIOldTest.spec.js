@@ -68,6 +68,7 @@ test.only("Child windows handler", async ({ browser }) => {
   //Opening browser with correct URL
   const context = await browser.newContext();
   const page = await context.newPage();
+  const userName = page.locator("#username");
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
   const documentLink = page.locator("[href*='documents-request']");
 
@@ -84,5 +85,8 @@ test.only("Child windows handler", async ({ browser }) => {
   console.log(text);
   console.log(arrayText);
   console.log(domain);
-  //  await page.pause();
+
+  await page.locator("#username").type(domain);
+  console.log(await page.locator("#username").textContent());
+  // await page.pause();
 });
