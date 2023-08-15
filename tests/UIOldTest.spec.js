@@ -86,6 +86,7 @@ test.only("Child windows handler", async ({ browser }) => {
   console.log(arrayText);
   console.log(domain);
 
+  //  Trying to type in the domain from the parent page - this did not work go back and watch guide
   await page.locator("#username").type(domain);
   console.log(await page.locator("#username").textContent());
   // await page.pause();
