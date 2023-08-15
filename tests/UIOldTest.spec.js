@@ -70,11 +70,11 @@ test.only("Child windows handler", async ({ browser }) => {
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
   const documentLink = page.locator("[href*='documents-request']");
 
-  const newPage = await Promise.all([
+  const [newPage] = await Promise.all([
     context.waitForEvent("page"),
     documentLink.click(),
   ]);
-  text = await newPage.locator(".red").textContent();
+  const text = await newPage.locator(".red").textContent();
   console.log(text);
 
   await page.pause();
