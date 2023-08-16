@@ -72,9 +72,10 @@ test.only("Child windows handler", async ({ browser }) => {
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
   const documentLink = page.locator("[href*='documents-request']");
 
-  //Createing method to click the blinking link on the webpage
-  //Opening the link in a different tab
-  const [newPage] = await Promise.all([
+  //  Createing method to click the blinking link on the webpage
+  //  Opening the link in a different tab
+  //  If the link opens two pages write: const [newPage, newPage2] instead
+  const [newPage] = await Promise.all([ 
     context.waitForEvent("page"),
     documentLink.click(),
   ]);
