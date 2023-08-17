@@ -13,11 +13,10 @@ This project was created in VsCode using: <br />
 
 `npm install -g` to install npm globally<br />
 `npm init playwright` to install Playwright skeleton and dependencies.<br />
-<br />
+
 Install node.js [here](https://nodejs.org/) <br />
 Install VSCode [here](https://code.visualstudio.com/download) <br />
 
-<br />
 
 ### `Imports used`
 
