@@ -91,5 +91,5 @@ test.only("Child windows handler", async ({ browser }) => {
   //  difference in code is the const declaration in line 82 where text is defined
   await page.locator("#username").type(domain);
   console.log(await page.locator("#username").textContent());
-  // await page.pause();
+  await page.pause();
 });
