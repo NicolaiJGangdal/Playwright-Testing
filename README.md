@@ -10,11 +10,14 @@ This project was created to get some experience with Playwright. When I get skil
 ### `Creation of the project`
 
 This project was created in VsCode using: <br />
+
+`npm install -g` to install npm globally<br />
+`npm init playwright` to install Playwright skeleton and dependencies.<br />
+<br />
 Install node.js [here](https://nodejs.org/) <br />
 Install VSCode [here](https://code.visualstudio.com/download) <br />
-Install the Playwright skeleton, dependencies and npm with: <br />
-`npm install -g` <br />
-`npm init playwright` <br />
+
+<br />
 
 ### `Imports used`
 
