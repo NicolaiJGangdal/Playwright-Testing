@@ -37,7 +37,7 @@ test("Page Playwright test", async ({ page }) => {
   console.log("Branch Test");
 });
 
-test("UI Controls", async ({ page }) => {
+test.only("UI Controls", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
 
   const userName = page.locator("#username");
@@ -64,7 +64,7 @@ test("UI Controls", async ({ page }) => {
   //await page.pause(); //Freezes the screen and waits for you to click -next step - handy when a test goes to fast
 });
 
-test.only("Child windows handler", async ({ browser }) => {
+test("Child windows handler", async ({ browser }) => {
   //Opening browser with correct URL
   const context = await browser.newContext();
   const page = await context.newPage();
